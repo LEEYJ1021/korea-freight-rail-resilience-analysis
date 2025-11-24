@@ -1,2 +1,176 @@
-# korea-freight-rail-resilience-analysis
-Replication package for the paper: "The Efficiency-Vulnerability Paradox: Network Analysis of Freight Rail Resilience, Economic Synergy, and Governance Mismatches in South Korea".
+# The Efficiency–Vulnerability Paradox: Network Analysis of Freight Rail Resilience, Economic Synergy, and Governance Mismatches in South Korea
+
+This repository contains the **full replication package (data, code, and results)** for the study titled:
+
+**“The Efficiency–Vulnerability Paradox: Network Analysis of Freight Rail Resilience, Economic Synergy, and Governance Mismatches in South Korea.”**
+
+---
+
+## Abstract
+
+This study examines the efficiency–vulnerability paradox in South Korea’s freight railway system through an integrated framework combining **network attack simulations**, **cascading failure modeling**, and **community detection**. We test eight hypotheses to clarify how network structure, operational resilience, and regional economic governance interact.
+
+Key findings include:
+
+* **Targeted attacks (H1)** result in rapid systemic collapse, with a critical threshold at **12–15% node removals**.
+* **Centrality strongly predicts cascading failure impact** (H2, ρ = 0.82), revealing a **Critical Triad** of hubs.
+* **Economic importance is positively correlated with resilience** (H3).
+* The traditional **efficiency–resilience trade-off is not supported** (H4).
+* High modularity enables localized containment during disruptions (H5).
+* Strong regional variation in resilience (H6).
+* A pronounced **rich-club structure** improves efficiency but intensifies systemic vulnerability (H7).
+* Over **65% of functional economic communities cross administrative boundaries** (H8), revealing governance mismatches.
+
+Policy implications include a shift toward **Strategic Resilience Engineering**, emphasizing critical hub protection, strategic redundancy, and cross-jurisdictional coordination.
+
+---
+
+## Keywords
+
+Transportation Resilience • Network Vulnerability • Cascading Failures • Spatial Mismatch • Rail Governance • South Korea
+
+---
+
+## Repository Structure
+
+```
+├─ figures/
+│  ├─ final_data_analysis_updated.png
+│  ├─ final_missing_data_analysis.png
+│  ├─ H1_attack_analysis.png
+│  ├─ H2_correlation_analysis.png
+│  ├─ H3_economic_resilience.png
+│  ├─ H4_tradeoff_analysis.png
+│  ├─ H5_community_structure.png
+│  ├─ H6_regional_resilience_detailed.png
+│  ├─ H7_rich_club_detailed.png
+│  ├─ H8_community_sizes.png
+│  └─ H8_network_improved.png
+├─ interactive_maps/
+│  ├─ H8_communities_enhanced_no_overlap.html
+│  └─ H8_station_density_heatmap.html
+├─ notebooks/
+│  └─ Full_Code.ipynb
+├─ results/
+│  ├─ H1-H5_enhanced_analysis/
+│  │  ├─ academic_research_report.txt
+│  │  └─ enhanced_analysis_results.json
+│  └─ H1-H5_preliminary_analysis/
+│     ├─ advanced_interactive_network_map.html
+│     ├─ centrality_data.csv
+│     ├─ comprehensive_analysis_dashboard.png
+│     ├─ corridor_efficiency_summary.csv
+│     └─ dataset_metadata.json
+├── requirements.txt
+├── LICENSE
+└── README.md  
+```
+
+---
+
+## Requirements and Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/[YourUsername]/korea-freight-rail-resilience-analysis.git
+cd korea-freight-rail-resilience-analysis
+```
+
+### 2. Create & Activate a Virtual Environment (Optional)
+
+**Windows**
+
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+**macOS/Linux**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## How to Reproduce the Analysis
+
+### 1. Prepare Raw Data
+
+Place all raw CSV/Excel data (timetables, coordinates, demand data) into the `data/` directory.
+
+### 2. Open the Jupyter Notebook
+
+```bash
+jupyter lab
+```
+
+Open:
+`notebooks/Full_Code.ipynb`
+
+### 3. Run the Notebook Sequentially
+
+The notebook performs:
+
+1. **Data loading & preprocessing**
+2. **Exploratory analysis**
+3. **Hypothesis testing for H1–H8** (network attacks, cascading failures, modularity, rich club, spatial mismatch)
+4. **Visualization & map generation**
+5. **Export of all figures and results**
+
+Outputs appear in the `results/` folder.
+
+---
+
+## Description of Key Outputs
+
+| File / Folder                             | Hypothesis | Description                                                |
+| ----------------------------------------- | ---------- | ---------------------------------------------------------- |
+| `final_missing_data_analysis.png`         | –          | Missing-data visualization before/after interpolation      |
+| `final_data_analysis_updated.png`         | –          | Summary dashboard of cleaned data                          |
+| `H1-H5_enhanced_analysis/`                | H1–H5      | Detailed statistical results + plots                       |
+| `H6_regional_resilience_detailed.png`     | H6         | Resilience comparison across administrative regions        |
+| `H7_rich_club_detailed.png`               | H7         | Rich-club coefficient φ(k) plot                            |
+| `H8_network_improved.png`                 | H8         | Map of economic communities                                |
+| `H8_community_sizes.png`                  | H8         | Bar chart of community sizes                               |
+| `H8_communities_enhanced_no_overlap.html` | H8         | Interactive map of functional vs administrative boundaries |
+| `H8_station_density_heatmap.html`         | H8         | Interactive heatmap of station density                     |
+
+---
+
+## License
+
+This project is distributed under the **MIT License**.
+See the `LICENSE` file for full terms.
+
+---
+
+## Uploading Your Repository to GitHub
+
+### **Method A — Web Upload**
+
+1. Create a new GitHub repository
+2. **Add file → Upload files**
+3. Drag-and-drop the entire project folder
+4. Commit changes
+
+### **Method B — Command Line**
+
+```bash
+git init
+git add .
+git commit -m "Initial commit of replication package"
+git branch -M main
+git remote add origin https://github.com/[YourUsername]/korea-freight-rail-resilience-analysis.git
+git push -u origin main
+```
+
+---
