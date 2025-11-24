@@ -2,32 +2,19 @@
 
 This repository contains the **full replication package (data, code, and results)** for the study titled:
 
-**“The Efficiency–Vulnerability Paradox: Network Analysis of Freight Rail Resilience, Economic Synergy, and Governance Mismatches in South Korea.”**
+**"The Efficiency-Vulnerability Paradox: Network Analysis of Freight Rail Resilience, Economic Synergy, and Governance Mismatches in South Korea."**
 
 ---
 
 ## Abstract
 
-This study examines the efficiency–vulnerability paradox in South Korea’s freight railway system through an integrated framework combining **network attack simulations**, **cascading failure modeling**, and **community detection**. We test eight hypotheses to clarify how network structure, operational resilience, and regional economic governance interact.
-
-Key findings include:
-
-* **Targeted attacks (H1)** result in rapid systemic collapse, with a critical threshold at **12–15% node removals**.
-* **Centrality strongly predicts cascading failure impact** (H2, ρ = 0.82), revealing a **Critical Triad** of hubs.
-* **Economic importance is positively correlated with resilience** (H3).
-* The traditional **efficiency–resilience trade-off is not supported** (H4).
-* High modularity enables localized containment during disruptions (H5).
-* Strong regional variation in resilience (H6).
-* A pronounced **rich-club structure** improves efficiency but intensifies systemic vulnerability (H7).
-* Over **65% of functional economic communities cross administrative boundaries** (H8), revealing governance mismatches.
-
-Policy implications include a shift toward **Strategic Resilience Engineering**, emphasizing critical hub protection, strategic redundancy, and cross-jurisdictional coordination.
+This study analyzes the efficiency–vulnerability paradox in South Korea's freight rail network using network attack simulations, cascading failure modeling, and community detection. The scale-free network demonstrates acute vulnerability to targeted attacks, with systemic fragmentation occurring at a critical threshold of only 12–15% node removal based on composite centrality. Node centrality strongly correlates with cascading failure impact (ρ=0.834–0.861), and economic importance shows a significant association with resilience (r=0.789–0.873). The network exhibits a significant rich-club structure among major hubs (k≥5, φ_norm>1, p<0.05), enhancing efficiency while concentrating risk. Moderate modularity (Q=0.414) enables localized disruption containment, yet resilience varies regionally. Crucially, 34.2% of functional economic communities misalign with administrative boundaries, revealing a spatial governance mismatch. Findings advocate for "Strategic Resilience Engineering" focused on protecting critical hubs, building strategic redundancy, and implementing cross-jurisdictional governance aligned with functional economic geography.
 
 ---
 
 ## Keywords
 
-Transportation Resilience • Network Vulnerability • Cascading Failures • Spatial Mismatch • Rail Governance • South Korea
+Transportation Resilience; Freight Railway Networks; Network Vulnerability; Cascading Failures; Spatial Mismatch; South Korea Rail Policy and Governance
 
 ---
 
