@@ -1,0 +1,44 @@
+ENHANCED RAILWAY NETWORK ANALYSIS - ACADEMIC REPORT
+======================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------------------------------------
+Analysis conducted: 2025-11-24 15:38:48
+Network scale: 53 nodes, 86 edges
+Hypotheses supported: 5/5
+
+DETAILED FINDINGS
+----------------------------------------------------------------------
+
+H1 ANALYSIS:
+  • Network resilience under different attack strategies
+  • Random attacks: AUC = 0.3959 (±0.0300)
+  • Targeted attacks: Betweenness AUC = 0.2074, Degree AUC = 0.2286
+  • Statistical significance: Mann-Whitney U U = 2500.0, p = 0.000000
+  • Effect size: Cohen's d = 5.9269 (large)
+  • CONCLUSION: SUPPORTED
+
+H2 ANALYSIS:
+  • Correlation between centrality and cascade impact
+  • Strongest correlation: betweenness (r = 0.9485, p = 0.000000)
+  • betweenness: r = 0.9485, 95% CI [0.9394, 0.9576]
+  • degree: r = 0.9469, 95% CI [0.9369, 0.9558]
+  • closeness: r = 0.9455, 95% CI [0.9350, 0.9550]
+  • eigenvector: r = 0.9383, 95% CI [0.9266, 0.9491]
+  • CONCLUSION: SUPPORTED
+
+H3 ANALYSIS:
+  • CONCLUSION: SUPPORTED
+
+H4 ANALYSIS:
+  • CONCLUSION: SUPPORTED
+
+H5 ANALYSIS:
+  • CONCLUSION: SUPPORTED
+
+METHODOLOGICAL NOTES
+----------------------------------------------------------------------
+• All statistical tests conducted with α = 0.05
+• Bootstrap confidence intervals based on 1000 resamples
+• Robust correlation methods employed to handle outliers
+• Multiple network models used for comparative analysis

@@ -1,0 +1,13 @@
+{
+  "generation_time": "2025-11-24 15:38:41",
+  "corridor_count": 134,
+  "station_count": 53,
+  "analysis_features": [
+    "network_centrality",
+    "spatial_analysis",
+    "demand_patterns",
+    "utilization_analysis",
+    "hub_classification",
+    "corridor_grading"
+  ]
+}
