@@ -1,18 +1,17 @@
------
-# The Efficiency-Vulnerability Paradox: Network Analysis of Freight Rail Resilience, Economic Synergy, and Governance Mismatches in South Korea
+# Freight Rail Network Resilience Analysis Framework: Efficiency-Vulnerability Trade-offs and Governance Mismatches
 
-This repository contains the **full replication package (data, code, and results)** for the study titled:
-**"The Efficiency-Vulnerability Paradox: Network Analysis of Freight Rail Resilience, Economic Synergy, and Governance Mismatches in South Korea."**
+This repository contains a **generalizable analytical framework** for studying complex system resilience in freight rail networks, implementing the methodology from:
+**"Complex System Resilience in Freight Rail Networks: Efficiency-Vulnerability Trade-offs and Governance Mismatches"**
 
 ---
 
 ## Abstract
-This study empirically investigates the efficiency–vulnerability paradox in South Korea's freight rail network by integrating network attack simulations, cascading failure modeling, and community detection. The network's scale-free topology confirms acute vulnerability to targeted attacks, with systemic fragmentation occurring at a critical threshold of only 12–15% node removal based on composite centrality, compared to 35–40% for random failures. Node centrality exhibits a strong, significant correlation with cascading failure impact (ρ=0.834–0.861), while economic importance is significantly associated with resilience metrics (r=0.789–0.873). Structurally, the network exhibits a significant rich-club structure among major hubs (k≥5, φ_norm>1, p<0.05), enhancing routing efficiency but concentrating systemic risk. Community detection reveals a moderate modular structure (Q=0.414), which facilitates localized disruption containment. Crucially, a spatial mismatch analysis demonstrates that 34.2% of functional economic communities misalign with administrative boundaries, revealing a fundamental governance mismatch. The findings advocate for a "Strategic Resilience Engineering" framework focused on (1) protecting critical hubs, (2) building strategic redundancy in the rich-club core, and (3) implementing cross-jurisdictional governance mechanisms aligned with functional economic geography rather than administrative borders.
+This framework investigates the efficiency–vulnerability trade-off in national freight rail systems as a complex system resilience problem. The integrated methodology combines network topology analysis, multi-strategy attack simulations, cascading failure modeling, and community detection with economic and governance data. The analysis reveals how scale-free, rich-club architectures create systemic vulnerabilities where targeted removal of 12–15% of high-centrality nodes triggers fragmentation, compared to 35–40% for random failures. The framework quantifies relationships between node centrality and cascading failure impact (Spearman's ρ = 0.834–0.861), economic importance and resilience metrics (r = 0.789–0.873), and spatial mismatches between functional economic communities and administrative boundaries. The "Strategic Resilience Engineering" framework provides generalizable approaches for managing resilience trade-offs in complex, optimized infrastructure networks.
 
 ---
 
 ## Keywords
-Transportation Resilience; Freight Railway Networks; Network Vulnerability; Cascading Failures; Spatial Mismatch; South Korea Rail Policy and Governance
+Complex System Resilience; Freight Railway Networks; Network Robustness and Vulnerability; Cascading Failures; Rich-Club Structure; Spatial Governance Mismatch; Resilience Engineering
 
 ---
 
