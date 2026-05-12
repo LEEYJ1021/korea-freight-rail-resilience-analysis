@@ -6,7 +6,7 @@ This repository contains a **generalizable analytical framework** for studying c
 ---
 
 ## Abstract
-This framework investigates the efficiency–vulnerability trade-off in national freight rail systems as a complex system resilience problem. The integrated methodology combines network topology analysis, multi-strategy attack simulations, cascading failure modeling, and community detection with economic and governance data. The analysis reveals how scale-free, rich-club architectures create systemic vulnerabilities where targeted removal of 12–15% of high-centrality nodes triggers fragmentation, compared to 35–40% for random failures. The framework quantifies relationships between node centrality and cascading failure impact (Spearman's ρ = 0.834–0.861), economic importance and resilience metrics (r = 0.789–0.873), and spatial mismatches between functional economic communities and administrative boundaries. The "Strategic Resilience Engineering" framework provides generalizable approaches for managing resilience trade-offs in complex, optimized infrastructure networks.
+This framework investigates the efficiency–vulnerability trade-off in national freight rail systems as a complex system resilience problem. The integrated methodology combines network topology analysis, multi-strategy attack simulations, cascading failure modeling, and community detection with economic and governance data. The analysis reveals how scale-free, rich-club architectures create systemic vulnerabilities where targeted removal of 12–15% of high-centrality nodes triggers fragmentation, compared to 35–40% for random failures. The framework quantifies relationships between node centrality and cascading failure impact (Spearman's ρ = 0.329–0.651), economic importance and resilience metrics (r = 0.789–0.873), and spatial mismatches between functional economic communities and administrative boundaries. The "Strategic Resilience Engineering" framework provides generalizable approaches for managing resilience trade-offs in complex, optimized infrastructure networks.
 
 ---
 
@@ -183,7 +183,7 @@ For replicating visual outputs, re-run the `PublicationVisualizer.create_individ
 ## Governance & Policy Implications
 
   * The study supports **"Strategic Resilience Engineering"**: prioritize targeted redundancy, enhance governance coordination across mismatched jurisdictions, and focus risk mitigation on rich-club hubs.
-  * Spatial mismatch (34.2% misaligned economic communities) reinforces the need to align administrative policies with functional freight flows.
+  * Spatial mismatch (34.6% misaligned economic communities) reinforces the need to align administrative policies with functional freight flows.
 
 ---
 
@@ -235,7 +235,7 @@ This section documents all supplementary analyses, corrected figures, and simula
 | Fig. 6 Logit | — | Upper asymptote L ≤ 0.999; all predictions clipped to [0, 1] | R1(7) |
 | Fig. 8 | k ≥ 11 included | k ≥ 11 excluded (N < 3; statistically unreliable) | R3(16) |
 | Appendix Fig. A2 | Not present | Centrality distribution (degree, betweenness, scale-free test) | R1(5) |
-| Table 11 Spearman ρ | 0.834–0.861 (synthetic) | **0.329–0.651** (actual simulation) | R1(7), R3(15) |
+| Table 14 Spearman ρ | 0.834–0.861 (synthetic) | **0.329–0.651** (actual simulation) | R1(7), R3(15) |
 
 ---
 
@@ -265,7 +265,7 @@ Four CSV files in `revision/data/`, each with columns `node · seed · centralit
 
 > **Note on Betweenness n = 200:** Stations with betweenness = 0 are excluded because their cascade impact reflects structural isolation from the largest connected component (LCC disconnection), not load-redistribution dynamics. Including them would conflate two mechanistically distinct failure modes.
 
-### Model Fit Summary (AIC comparison, basis for revised Table 11)
+### Model Fit Summary (AIC comparison, basis for revised Table 14)
 
 AIC formula: n·log(RSS/n) + 2k. ΔAIC < −10 = strong evidence for nonlinear fit.
 
