@@ -1,0 +1,5 @@
+algorithm,library,key_parameters,runs,selection_rule
+Louvain,python-louvain v0.16,resolution=1.0; random_state=42,10,Best modularity Q
+Infomap,infomap v2.6.0,seed=42; num_trials=10; two_level=True,10,Minimum description length
+Label Propagation,NetworkX v3.x,seed=42,10,Mode assignment across runs
+Spectral Clustering,scikit-learn v1.x,n_clusters=6; random_state=42; n_init=10,1,Eigengap heuristic

@@ -1,0 +1,5 @@
+economic_indicator,resilience_metric,n,pearson_r,null_mean,null_sd,p_permutation
+TotalFreightDemand,StructuralResilience,53,0.8644,0.0006,0.1376,0.0002
+WeightedDegreeCentrality,FunctionalResilience,53,0.1142,0.0035,0.1395,0.4361
+StrategicCommodityFlow,RecoveryResilience,53,0.0143,-0.0011,0.139,0.911
+EconomicMultiplierEffects,AdaptiveResilience,53,0.7815,0.001,0.1387,0.0002
