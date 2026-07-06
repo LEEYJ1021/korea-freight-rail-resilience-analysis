@@ -6,7 +6,7 @@ This repository contains a **generalizable analytical framework** for studying c
 ---
 
 ## Abstract
-This framework investigates the efficiency–vulnerability trade-off in national freight rail systems as a complex system resilience problem. The integrated methodology combines network topology analysis, multi-strategy attack simulations, cascading failure modeling, and community detection with economic and governance data. The analysis reveals how scale-free, rich-club architectures create systemic vulnerabilities where targeted removal of 12–15% of high-centrality nodes triggers fragmentation, compared to 35–40% for random failures. The framework quantifies relationships between node centrality and cascading failure impact (Spearman's ρ = 0.329–0.651), economic importance and resilience metrics (r = 0.789–0.873), and spatial mismatches between functional economic communities and administrative boundaries. The "Strategic Resilience Engineering" framework provides generalizable approaches for managing resilience trade-offs in complex, optimized infrastructure networks.
+This framework investigates the efficiency–vulnerability trade-off in national freight rail systems as a complex system resilience problem. The integrated methodology combines network topology analysis, multi-strategy attack simulations, cascading failure modeling, and community detection with economic and governance data. The analysis reveals how scale-free, rich-club architectures create systemic vulnerabilities where targeted removal of 12–15% of high-centrality nodes triggers fragmentation, compared to 35–40% for random failures. The framework quantifies relationships between node centrality and cascading failure impact, economic importance and resilience metrics, and spatial mismatches between functional economic communities and administrative boundaries. The "Strategic Resilience Engineering" framework provides generalizable approaches for managing resilience trade-offs in complex, optimized infrastructure networks.
 
 ---
 
@@ -45,7 +45,7 @@ Complex System Resilience; Freight Railway Networks; Network Robustness and Vuln
 │     ├─ comprehensive_analysis_dashboard.png
 │     ├─ corridor_efficiency_summary.csv
 │     └─ dataset_metadata.json
-├─ revision/                        ← NEW: revision v2 materials
+├─ revision/
 │  ├─ figures/
 │  │  ├─ Fig2_merged_regional_map_v2.png
 │  │  ├─ Fig6_nonlinear_fitting_v5.png
@@ -60,6 +60,27 @@ Complex System Resilience; Freight Railway Networks; Network Robustness and Vuln
 │     ├─ step1_cascade_simulation.py
 │     ├─ revision_figures_v2.R
 │     └─ fig6_nonlinear_fitting_v5.R
+├─ upload_2026-07/                  ← NEW: second-round upload materials
+│  ├─ figures/
+│  │  ├─ Fig5_centrality_cascade_exact_topology.png
+│  │  ├─ Fig6_economic_resilience_nullmodel.png
+│  │  └─ Fig7_cascade_nullmodel_permutation.png
+│  ├─ data/
+│  │  ├─ cascade_betweenness_exact.csv
+│  │  ├─ cascade_degree_exact.csv
+│  │  ├─ cascade_closeness_exact.csv
+│  │  ├─ cascade_eigenvector_exact.csv
+│  │  ├─ cascade_sensitivity_specifications.csv
+│  │  ├─ nullmodel_cascade_permutation.csv
+│  │  ├─ nullmodel_economic_resilience.csv
+│  │  ├─ community_algorithm_parameters.csv
+│  │  ├─ centrality_data.csv
+│  │  └─ corridor_efficiency_summary.csv
+│  ├─ scripts/
+│  │  ├─ step1_cascade_simulation_exact_topology.py
+│  │  ├─ step2_nullmodel_validation.py
+│  │  └─ generate_figures.py
+│  └─ README_upload_2026-07.md
 ├── requirements.txt
 ├── LICENSE
 └── README.md
@@ -216,14 +237,11 @@ git push -u origin main
 ```
 
 ---
-
 ---
 
 # Revision Materials — Review Response (v2)
 
-This section documents all supplementary analyses, corrected figures, and simulation data added in response to reviewer comments. All materials live in the `revision/` folder and are fully self-contained: scripts read from `revision/data/` and write to `revision/figures/`.
-
----
+This section documents all supplementary analyses, corrected figures, and simulation data added in response to the first round of reviewer comments. All materials live in the `revision/` folder and are fully self-contained: scripts read from `revision/data/` and write to `revision/figures/`.
 
 ## Summary of Changes
 
@@ -237,8 +255,6 @@ This section documents all supplementary analyses, corrected figures, and simula
 | Appendix Fig. A2 | Not present | Centrality distribution (degree, betweenness, scale-free test) | R1(5) |
 | Table 14 Spearman ρ | 0.834–0.861 (synthetic) | **0.329–0.651** (actual simulation) | R1(7), R3(15) |
 
----
-
 ## Revised Figures
 
 | File | Replaces | Key changes |
@@ -247,8 +263,6 @@ This section documents all supplementary analyses, corrected figures, and simula
 | `Fig6_nonlinear_fitting_v5.png` | Fig. 6 | Real simulation data; 3-model AIC comparison; Logit L ≤ 0.999; predictions bounded [0, 1]; Spearman ρ per panel |
 | `Fig8_richclub_v2.png` | Fig. 8 | k ≥ 11 removed; FDR-adjusted p-values (Benjamini-Hochberg); 95% bootstrap CIs (1,000 iterations) |
 | `Fig_centrality_distribution_v2.png` | *(new — Appendix A2)* | (a) degree histogram · (b) log-log scale-free test · (c) betweenness histogram · (d) degree vs. betweenness scatter with top-8 hubs |
-
----
 
 ## Simulation Data
 
@@ -261,86 +275,89 @@ Four CSV files in `revision/data/`, each with columns `node · seed · centralit
 | `cascade_closeness.csv` | Closeness | 424 | 0.359*** |
 | `cascade_eigenvector.csv` | Eigenvector | 424 | 0.329*** |
 
-\*** p < 0.001 · Simulation: α = 0.50, seeds = [42, 137, 256, 512, 1024, 2048, 4096, 8192]
+\*** p < 0.001 · Simulation: α = 0.50, seeds = [42, 137, 256, 512, 1024, 2048, 4096, 8192], 8 configuration-model realizations preserving the empirical degree sequence.
 
-> **Note on Betweenness n = 200:** Stations with betweenness = 0 are excluded because their cascade impact reflects structural isolation from the largest connected component (LCC disconnection), not load-redistribution dynamics. Including them would conflate two mechanistically distinct failure modes.
+> **Note on Betweenness n = 200:** Stations with betweenness = 0 are excluded because their cascade impact reflects structural isolation from the largest connected component (LCC disconnection), not load-redistribution dynamics.
 
-### Model Fit Summary (AIC comparison, basis for revised Table 14)
-
-AIC formula: n·log(RSS/n) + 2k. ΔAIC < −10 = strong evidence for nonlinear fit.
+### Model Fit Summary (AIC comparison, basis for original revised Table 14)
 
 | Centrality | R²_linear | ΔAIC Power-Law | ΔAIC Logit | Pattern |
 |-----------|-----------|---------------|-----------|---------|
-| Betweenness | 0.630 | +2.1 | −10.4 | Near-linear power-law (mechanistically consistent with Motter-Lai Eq. 7 load proxy) |
-| Degree | 0.502 | **−39.8** | **−36.0** | Strong nonlinear — finite path capacity saturation |
-| Closeness | 0.206 | **−48.4** | **−98.8** | Strong nonlinear — load redistribution limit |
-| Eigenvector | 0.365 | **−105.9** | **−94.7** | Strongest nonlinear — core saturation effect |
+| Betweenness | 0.630 | +2.1 | −10.4 | Near-linear power-law (load proxy) |
+| Degree | 0.502 | **−39.8** | **−36.0** | Strong nonlinear |
+| Closeness | 0.206 | **−48.4** | **−98.8** | Strong nonlinear |
+| Eigenvector | 0.365 | **−105.9** | **−94.7** | Strongest nonlinear |
 
----
-
-## Reproduction Scripts
-
-Run in order:
-
-### Step 1 — Cascade Simulation (Python)
-
-Script: `revision/scripts/step1_cascade_simulation.py`
+## Reproduction Scripts (revision/)
 
 ```bash
 python revision/scripts/step1_cascade_simulation.py
-# Produces: revision/data/cascade_betweenness.csv
-#           revision/data/cascade_degree.csv
-#           revision/data/cascade_closeness.csv
-#           revision/data/cascade_eigenvector.csv
+Rscript revision/scripts/fig6_nonlinear_fitting_v5.R
+Rscript revision/scripts/revision_figures_v2.R
 ```
-
-**What it does:** Constructs 8 configuration-model networks preserving the empirical Korean freight rail degree sequence (N = 53, E ≈ 86), then runs the Motter-Lai load-redistribution cascade simulation for every node in each realization.
 
 **Python dependencies:** `networkx >= 2.8`, `numpy`, `pandas`, `scipy`
-
-### Step 2 — Fig. 6 Nonlinear Fitting (R)
-
-Script: `revision/scripts/fig6_nonlinear_fitting_v5.R`
-
-```bash
-Rscript revision/scripts/fig6_nonlinear_fitting_v5.R
-# Reads:   revision/data/cascade_*.csv
-# Produces: revision/figures/Fig6_nonlinear_fitting_v5.png
-# Prints:   model comparison table to console (paste into rebuttal)
-```
-
-**R dependencies:** `ggplot2`, `patchwork`, `nls2`, `dplyr`, `scales`
-
-### Step 3 — Fig. 2, Fig. 8, Fig. A2 (R)
-
-Script: `revision/scripts/revision_figures_v2.R`
-
-```bash
-Rscript revision/scripts/revision_figures_v2.R
-# Produces: revision/figures/Fig2_merged_regional_map_v2.png
-#           revision/figures/Fig8_richclub_v2.png
-#           revision/figures/Fig_centrality_distribution_v2.png
-#           revision/figures/Fig2_merged_regional_map_v2.html  (interactive)
-```
-
-**R dependencies:** `ggplot2`, `ggrepel`, `patchwork`, `dplyr`, `scales`, `maps`, `leaflet`, `leaflet.extras`, `htmlwidgets`
-
----
+**R dependencies:** `ggplot2`, `patchwork`, `nls2`, `dplyr`, `scales`, `ggrepel`, `maps`, `leaflet`, `leaflet.extras`, `htmlwidgets`
 
 ## Centrality Distribution Summary (Appendix A2)
 
 | Metric | Value | Interpretation |
 |--------|-------|----------------|
-| Scale-free exponent γ | 1.23 | Consistent with spatially embedded transport networks (Barthélemy, 2011, *Physics Reports*) |
+| Scale-free exponent γ | 1.23 | Consistent with spatially embedded transport networks (Barthélemy, 2011) |
 | R² of log-log fit | 0.864 | Good power-law fit |
 | Degree Gini | 0.447 | High concentration — hub-dominated topology |
 | Betweenness Gini | 0.505 | Extreme bridging concentration at top hubs |
 
 ---
+---
+
+# Additional Materials Upload — Editor & Reviewer Response (2026-07)
+
+This section documents the supplementary analyses and corrected figures uploaded in response to the second round of editor/reviewer comments (manuscript JRESS-D-25-05649R1). All materials live in the `upload_2026-07/` folder and are fully self-contained: scripts read from `upload_2026-07/data/` and write to `upload_2026-07/figures/`.
+
+This folder is additive — it does not replace `revision/`. Where a result supersedes an earlier one (e.g., Table 14), both are kept for full provenance, and the change is documented below. See `upload_2026-07/README_upload_2026-07.md` for a detailed provenance note, including which numbers are genuinely computed from the reconstructed exact topology and which are proxy/placeholder values pending the authors' verified engineering and economic datasets.
+
+## Summary of Changes
+
+| Item | Prior version (`revision/`) | This upload (`upload_2026-07/`) | Comment addressed |
+|------|------------------------------|----------------------------------|---|
+| Cascade simulation network | 8 configuration-model realizations preserving the empirical degree sequence (N=53, E≈86 each) | Exact physical topology reconstructed from real origin-destination corridor records (single network, N=53, E=86, verified against `centrality_data.csv`) | Editor/R2: simulate directly on the real network geometry |
+| Node capacity (Eq. 7) | Uniform tolerance, C_j = (1+α)·L_j(0) | Same uniform-tolerance baseline retained in this package; heterogeneous track-class/signalling multipliers require engineering metadata not included here (see provenance note) | R2: capacity formula should reflect engineering safety margins |
+| Correlation validation | Not present | Cascade-permutation test (5,000 iterations) and economic-resilience permutation test (5,000 iterations), both computed directly from data | R2: introduce a null model to strengthen the correlation conclusions |
+| Table 16 (economic–resilience) | Single composite resilience score | Four resilience dimensions (structural/functional/recovery/adaptive) defined independently of the cascade simulation, each validated against a permutation null | Avoid testing H3 against a resilience proxy derived from the same cascade model used for H2 |
+| Community detection | Algorithm list only | Full parameter table (resolution, seeds, n_init, selection rule per algorithm) | R2: specify algorithm parameters for reproducibility |
+
+## Simulation Data
+
+| File | Content | n | Notes |
+|------|---------|---|-------|
+| `cascade_betweenness_exact.csv` | Betweenness vs. cascade impact | 33 (btw > 0 stations only) | computed from the reconstructed exact topology |
+| `cascade_degree_exact.csv` | Degree vs. cascade impact | 53 | |
+| `cascade_closeness_exact.csv` | Closeness vs. cascade impact | 53 | |
+| `cascade_eigenvector_exact.csv` | Eigenvector vs. cascade impact | 53 | |
+| `cascade_sensitivity_specifications.csv` | Same four measures under raw and demand-weighted impact, α ∈ {0.2, 0.5, 0.8} | 53 each | robustness checks alongside the raw/α=0.5 primary specification |
+| `nullmodel_cascade_permutation.csv` | 5,000-iteration label-shuffle null per centrality measure | — | independent check of the centrality–cascade relationship |
+| `nullmodel_economic_resilience.csv` | 5,000-iteration label-shuffle null for each economic–resilience pair | — | see provenance note on proxy economic indicators |
+| `community_algorithm_parameters.csv` | Parameters for Louvain, Infomap, Label Propagation, Spectral Clustering | — | documented from manuscript text, not re-run in this package |
+
+## Reproduction Scripts (upload_2026-07/)
+
+Run in order:
+
+```bash
+python upload_2026-07/scripts/step1_cascade_simulation_exact_topology.py
+python upload_2026-07/scripts/step2_nullmodel_validation.py
+python upload_2026-07/scripts/generate_figures.py
+```
+
+**Python dependencies:** `networkx >= 2.8`, `numpy`, `pandas`, `scipy`, `matplotlib >= 3.5`
+
+All annotated statistics (ρ, r, p-values) in the resulting figures are computed directly from the CSVs listed above at plot time — none are hardcoded.
 
 ## Changelog
 
 | Version | Date | Description |
 |---------|------|-------------|
 | v1 | 2025-09 | Initial version |
-| v2 | 2026-05 | Major revision: actual Motter-Lai simulation; 3-model AIC comparison in Fig. 6; merged Fig. 2; k ≥ 11 excluded from Fig. 8; Appendix A2 added |
+| v2 | 2026-05 | Configuration-model cascade simulation; 3-model AIC comparison in Fig. 6; merged Fig. 2; k ≥ 11 excluded from Fig. 8; Appendix A2 added |
+| upload_2026-07 | 2026-07 | Exact-topology cascade simulation reconstructed from real corridor data; dual null-model validation for H2 and H3; community detection parameter table; dimension-specific economic–resilience results with full provenance disclosure |
